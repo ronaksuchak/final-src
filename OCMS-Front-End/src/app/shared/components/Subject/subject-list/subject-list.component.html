@@ -1,0 +1,96 @@
+<!-- <div class="container table-responsive">
+    <div class="row">
+        <div class="col-12">
+            <table class = "table table-striped ">
+                <thead>
+                    <tr>
+                        <th style="width:5%"> userId</th>
+                          <th style="width:20%"> title </th>
+                          <th style="width:45%"> body</th>
+                          <th style="width:30%"> Action</th>
+                      </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let subject of subjects" >
+                        <td> {{ subject.userId }} </td>
+                        <td> {{ subject.title }} </td>
+                        <td> {{ subject.body }} </td>
+                        <td >
+                            <button (click) = "subjectDetails(subject.userId)" class = "btn btn-primary" style="margin-left: 10px"> View</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> -->
+<div class="search-div"> 
+    <mat-form-field class="search-form-field">
+      <input matInput [(ngModel)]="searchKey" placeholder="search" autocomplete="off" (keyup)="applyFilter()">
+      <button mat-button matSuffix mat-icon-button aria-level="clear" *ngIf="searchKey" (click)="onsearchClear()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  
+  
+  <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+   
+        <!-- Position Column -->
+        <ng-container matColumnDef="subject_id" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Subject Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.subject_id}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="subject_name" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Subject Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.subject_name}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="theory_marks" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Theory Marks </th>
+          <td mat-cell *matCellDef="let element"> {{element.theory_marks}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="practical_marks" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Practical Marks </th>
+          <td mat-cell *matCellDef="let element"> {{element.practical_marks}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="faculty_id" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Faculty Name </th>
+          <!-- here we have to display faculty name and not faculty Id so modify back-end accordingly -->
+          <td mat-cell *matCellDef="let element"> {{element.faculty_id}} </td>
+        </ng-container>
+  
+        <!-- For Edit/Delet Action -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button  (click) = "subjectDetails(row)">Details</button>
+            <!-- <button mat-icon-button><mat-icon>delete_outline</mat-icon></button> -->
+          </td>
+        </ng-container>
+  
+        <!-- footer: for loading  -->
+        <ng-container matColumnDef="loading">
+          <th mat-footer-cell *matFooterCellDef colspan="6"> Loading Data.... </th>
+        </ng-container>
+  
+        <ng-container matColumnDef="noData">
+          <th mat-footer-cell *matFooterCellDef colspan="6"> No Data.... </th>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':dataSource!=null}"></tr>
+        <tr mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource!=null && dataSource.data.length==0)}"></tr>
+      </table>  
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+    <!-- [ngclass]="{hide:dataSource!=null}"
+    [ngclass]="{hide:!(dataSource=null && dataSource.data.length==0)}" -->

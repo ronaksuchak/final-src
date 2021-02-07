@@ -1,0 +1,60 @@
+
+<button class="material-icons" (click)="cancel()">
+    close
+    </button>
+    
+      <div class="col-md-6 offset-md-3">
+        <h3> Create Schedule </h3>
+        <form (ngSubmit) = "onSubmit()">
+    <!--     
+            <div class="form-group">
+                <label>Student Id</label>
+                <input type="text" class ="form-control" id = "student_id"
+                    [(ngModel)] = "student.student_id" name = "student_id">
+            </div>
+         -->
+            <div class="form-group">
+                <label> Enter Date</label>
+                <input type="text" class ="form-control" id = "calender_date"
+                    [(ngModel)] = "schedule.calenderDate" name = "calender_date">
+            </div>
+        
+            <div class="form-group">
+                <label> Enter Subject ID</label>
+                <input type="text" class ="form-control" id = "subject_id"
+                    [(ngModel)] = "schedule.subject_id" name = "subject_id">
+            </div>
+    
+            <div class="form-group">
+                <label> Enter Faculty ID</label>
+                <input type="text" class ="form-control" id = "faculty_id"
+                    [(ngModel)] = "schedule.faculty_id" name = "faculty_id">
+            </div>
+        
+            <div class="form-group">
+                <label> Start Time</label>
+                <input type="time" class ="form-control" id = "start_time"
+                    [(ngModel)] = "schedule.start_time" name = "start_time">
+            </div>
+        
+            <div class="form-group">
+                <label> End Time</label>
+                <input type="time" class ="form-control" id = "end_time"
+                    [(ngModel)] = "schedule.end_time" name = "end_time">
+            </div>
+        
+            <div class="form-group">
+                <label> Link</label>
+                <input type="text" class ="form-control" id = "link"
+                    [(ngModel)] = "schedule.link" name = "link">
+            </div>
+        
+            <div class="form-group">
+                <button class = "btn btn-success" type ="submit">Submit</button>
+            </div>
+    
+        
+        </form>
+        </div> 
+    
+        

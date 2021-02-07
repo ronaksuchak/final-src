@@ -1,0 +1,33 @@
+<button class="material-icons" (click)="cancel()">
+cancel
+</button>
+<!-- 
+
+  cancel(){
+    this.dialogRef.close();
+    
+  }
+
+ -->
+<div class="container">
+    <table class = "table table-striped ">
+        <thead>
+           
+                <th> Id</th>
+                <th> First Name </th>
+                <th> Last Name</th>
+                <th> Email Id</th>
+                <th> Phone No </th>
+                <th> Subject Id</th>
+           
+        </thead>
+        <tbody>
+            <td> {{ faculty.faculty_id }} </td>
+            <td> {{ faculty.first_name }} </td>
+            <td> {{ faculty.last_name }} </td>
+            <td> {{ faculty.email_id }} </td>
+            <td> {{ faculty.phone_no }} </td>
+            <td> {{ faculty.subject_id }} </td>
+        </tbody>
+    </table>
+</div>

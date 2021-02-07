@@ -1,0 +1,34 @@
+<button class="material-icons" (click)="cancel()">
+close
+</button>
+<!-- 
+
+     cancel() {
+    //public dialogRef: MatDialogRef<SubjectDetailsComponent>
+    this.dialogRef.close();
+  }
+ -->
+<div class="container">
+    <table class = "table table-striped ">
+        <thead>
+            
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email-Id</th>
+                <th>PRN</th>
+                <th>Phone No</th>
+                <th>DOB</th>
+            
+        </thead>
+        <tbody>
+            <tr> {{ student.student_id }} </tr>
+            <tr> {{ student.first_name }} </tr>
+            <tr> {{ student.last_name }} </tr>
+            <tr> {{ student.email_id }} </tr>
+            <tr> {{ student.prn}} </tr>
+            <tr> {{ student.phone_no}} </tr>
+            <tr> {{ student.dob}} </tr>
+        </tbody>
+    </table>
+</div>

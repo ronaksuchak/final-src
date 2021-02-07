@@ -1,0 +1,27 @@
+<button class="material-icons" (click)="cancel()">
+close
+</button>
+
+<div class="container">
+    <table class = "table table-striped ">
+        <thead>
+            
+                <th> Subject Id</th>
+                <th> Name </th>
+                <th> Theory Marks</th>
+                <th> Practical Marks </th>
+                <th> Faculty Name</th>
+                <!-- It is fatching faculty id but we have to impliment faculty name from backend -->
+          
+        </thead>
+        <tbody>
+            <td> {{ subject.subject_id }} </td>
+            <td> {{ subject.subject_name }} </td>
+            <td> {{ subject.theory_marks }} </td>
+            <td> {{ subject.practical_marks }} </td>
+            <td> {{ subject.faculty_id }} </td>
+           
+        </tbody>
+    </table>
+    
+</div>

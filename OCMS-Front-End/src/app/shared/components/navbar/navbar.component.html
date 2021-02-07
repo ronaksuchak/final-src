@@ -1,0 +1,199 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Online Class Management System</title>
+
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+      integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+      integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg">
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+      integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+      integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <mat-toolbar color="primary">
+      <button
+        mat-icon-button
+        class="example-icon"
+        id="sidebarCollapse"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="navbar-text">
+        <span style="text-align: right"
+          >Welcome Online To Class Management System</span
+        >
+      </div>
+    </mat-toolbar>
+    <div class="wrapper">
+      <div>
+        <nav id="sidebar">
+          <ul class="list-unstyled components">
+            <p>Weclome {{ username }}</p>
+            <li class="nav-item">
+              <a
+                class="nav-link navbar-brand"
+                *ngIf="invalidLogin && !isAdmin && !isFaculty && !isStudent"
+                [routerLink]="['/login']"
+                routerLinkActive="active"
+                >Login</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                *ngIf="isAdmin && !invalidLogin"
+                [routerLink]="['/cc/home']"
+                routerLinkActive="active"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                *ngIf="isFaculty && !invalidLogin"
+                [routerLink]="['/faculty/home']"
+                routerLinkActive="active"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                *ngIf="isStudent && !invalidLogin"
+                [routerLink]="['/student/home']"
+                routerLinkActive="active"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                *ngIf="isAdmin && !invalidLogin"
+                [routerLink]="['/cc/faculties']"
+                routerLinkActive="active"
+                >Faculties</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                *ngIf="isAdmin && !invalidLogin"
+                [routerLink]="['/cc/notices']"
+                routerLinkActive="active"
+                >Notice</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                *ngIf="isAdmin && !invalidLogin"
+                [routerLink]="['/cc/schedule']"
+                routerLinkActive="active"
+                >Schedule</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                *ngIf="isAdmin && !invalidLogin"
+                [routerLink]="['/cc/students']"
+                routerLinkActive="active"
+                >Students</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                *ngIf="isAdmin && !invalidLogin"
+                [routerLink]="['/cc/subjects']"
+                routerLinkActive="active"
+                >Subjects</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                *ngIf="isFaculty && !invalidLogin"
+                [routerLink]="['/faculty/subjects']"
+                routerLinkActive="active"
+                >My Subjects</a
+              >
+            </li>
+            <!-- <li class="nav-item">
+                    <a class="nav-link"   *ngIf="isFaculty && !invalidLogin" [routerLink]="['/faculty/assignments']" routerLinkActive="active" >Assignments</a>
+                  </li> -->
+            <!-- <li class="nav-item">
+                    <a class="nav-link"   *ngIf="isStudent && !invalidLogin" [routerLink]="['/student/assignments']" routerLinkActive="active" >Assignments</a>
+                  </li> -->
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                *ngIf="isStudent && !invalidLogin"
+                [routerLink]="['/student/schedule']"
+                routerLinkActive="active"
+                >Schedule</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                *ngIf="isStudent && !invalidLogin"
+                [routerLink]="['/student/subjects']"
+                routerLinkActive="active"
+                >Subjects</a
+              >
+            </li>
+            <li class="nav-item">
+              <button (click)="logout()" *ngIf="!invalidLogin">Log Out</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="outlet">
+        <router-outlet></router-outlet>
+      </div>
+
+      <div class="footer">
+        <footer class="bg-primary text-white text-center text-lg-start">
+          <div
+            class="text-center p-3"
+            style="background-color: rgba(0, 0, 0, 0.2)"
+          >
+            © 2020 Copyright:
+            <a class="text-white" href="#">OnlineClassManagementSystem.com</a>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

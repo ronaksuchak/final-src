@@ -1,0 +1,89 @@
+<!-- <div class="container">
+    <div class="row justify-content-end"> -->
+        <!-- <div style="margin-top: 20px">
+            <button (click) = "addNewNotice()" class = "btn btn-info"> Add new Notice</button>
+        </div> -->
+    <!-- </div>
+    <div class="row "style="margin-top: 20px">
+        <div class="table-responsive">
+                <div class="col-12">
+                    <table class = "table table-striped ">
+                        <thead>
+                            <tr>
+                                <th> notice_id</th>
+                                <th> coordinator_id </th>
+                                <th> description</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                        <tr *ngFor = "let notice of notices" >
+                            <td> {{ notice.notice_id }} </td>
+                            <td> {{ notice.coordinator_id }} </td>
+                            <td> {{ notice.description }} </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+</div> -->
+<div class="search-div"> 
+    <mat-form-field class="search-form-field">
+      <input matInput [(ngModel)]="searchKey" placeholder="search" autocomplete="off" (keyup)="applyFilter()">
+      <button mat-button matSuffix mat-icon-button aria-level="clear" *ngIf="searchKey" (click)="onsearchClear()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  
+  <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="notice_id" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Notice Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.notice.notice_id}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <!-- <ng-container matColumnDef="coordinator_id" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> coordinator_id </th>
+          <td mat-cell *matCellDef="let element"> {{element.coordinator.coordinator_id}} </td>
+        </ng-container> -->
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="fauclty_name" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Fauclty Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.faculty.first_name+ " " + element.faculty.last_name}} </td>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="notice_title" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Notice Title </th>
+          <td mat-cell *matCellDef="let element"> {{element.notice.notice_title}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="description" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.notice.description}} </td>
+        </ng-container>
+
+        
+        <!-- footer: for loading  -->
+        <ng-container matColumnDef="loading">
+          <th mat-footer-cell *matFooterCellDef colspan="6"> Loading Data.... </th>
+        </ng-container>
+  
+        <ng-container matColumnDef="noData">
+          <th mat-footer-cell *matFooterCellDef colspan="6"> No Data.... </th>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':dataSource!=null}"></tr>
+        <tr mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(dataSource!=null && dataSource.data.length==0)}"></tr>
+      </table>  
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+    <!-- [ngclass]="{hide:dataSource!=null}"
+    [ngclass]="{hide:!(dataSource=null && dataSource.data.length==0)}" -->

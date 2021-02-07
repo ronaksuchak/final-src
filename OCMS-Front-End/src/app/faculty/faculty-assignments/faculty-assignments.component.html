@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row justify-content-end">
+        <div style="margin-top: 20px">
+            <!-- <button (click) = "uploadAssignment()" class = "btn btn-primary"> Upload Assignment</button> -->
+            <button mat-raised-button (click)="onCreate()"class = "btn btn-info">Upload Assignment</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h2>Assignments:</h2>
+            <app-assignment-list></app-assignment-list>
+        </div>
+    </div>    
+</div>

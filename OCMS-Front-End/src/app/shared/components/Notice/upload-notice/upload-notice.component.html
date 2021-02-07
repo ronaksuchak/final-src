@@ -1,0 +1,22 @@
+<div class="container">
+        <h3> Upload Notice </h3>
+        <form (ngSubmit) = "onSubmit()">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="id">Enter Your Id</label>
+                        <input type="number" name="id" [(ngModel)] = "id" class="form-control"
+                        id="title" placeholder="Enter Title">
+                </div>
+                    <div class="form-group">
+                        <input type="text" name="title" [(ngModel)] = "notice.notice_title" class="form-control"
+                        id="noticeTitle" placeholder="Enter Title">
+                </div>
+                    <div class="comment">
+                        <textarea class= "textinput" name = "description"  [(ngModel)] = "notice.description" placeholder="Enter Notice here...">
+                        </textarea>
+                    </div>
+            
+                    <button class = "btn btn-success" type ="submit">Submit</button>
+                </div>        
+        </form> 
+</div>

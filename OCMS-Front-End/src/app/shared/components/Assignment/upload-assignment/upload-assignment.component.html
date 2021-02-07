@@ -1,0 +1,35 @@
+s<button class="material-icons" (click)="cancel()">
+  close
+  </button>
+<div class="col-md-6 offset-md-3">
+  <h3> Upload Assignment </h3>
+  <form (ngSubmit) = "onSubmit()">
+    <div class="form-group">
+      <label> Topic Name</label>
+      <input type="text" class ="form-control" id = "topicName"
+          [(ngModel)] = "assignment.topicName" name = "topicName">
+  </div>
+  <div class="form-group">
+    <label> Title</label>
+    <input type="text" class ="form-control" id = "title"
+        [(ngModel)] = "assignment.title" name = "title">
+</div>
+
+<div class="form-group">
+    <label>Assignment no.</label>
+    <input type="text" class ="form-control" id = "assignmentNo"
+        [(ngModel)] = "assignment.assignmentNo" name = "assignmentNo">
+</div>
+  <div class="input-group mb-3 col-md-6 offset-md-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Upload</span>
+    </div>
+    <!-- <div class="custom-file">
+      <input type="file" class="custom-file-input" id="inputGroupFile01">
+      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+    </div> -->
+</div>
+<button class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+</div>
